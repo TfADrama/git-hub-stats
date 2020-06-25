@@ -6,4 +6,10 @@ import { UserCard } from '../src/components';
 
 storiesOf('User Card', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add('default', () => <UserCard title={'Tiago Freitas'} nFollowers={500} />);
+  .add('default', () => (
+    <UserCard
+      title={'Tiago Freitas'}
+      nFollowers={500}
+      imgURL={'https://reactnative.dev/img/tiny_logo.png'}
+    />
+  ));

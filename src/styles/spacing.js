@@ -9,11 +9,10 @@ export const DEFAULT_RADIUS = 5;
 export const DEFAULT_BORDER_WIDTH = 1;
 
 /**
- * Profile Image Spacing
+ * Profile Image
  */
-export const MIN_PROFILE_IMG_SIZE = 70;
+export const MINI_PROFILE_IMG_SIZE = 35;
 export const PROFILE_IMG_SIZE = 200;
-export const PROFILE_IMG_RADIUS = MIN_PROFILE_IMG_SIZE / 2;
 
 /**
  * Buttons

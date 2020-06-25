@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 
 import { CardView } from './common';
 import { Spacing, Typography } from '../styles';
-import { Followers } from '.';
+import { Followers, RoundedImage } from '.';
 
 const UserCard = ({ title, nFollowers, imgURL }) => {
   return (
-    <CardView>
-      {/* Profile PIC */}
+    <CardView style={styles.cardStyle}>
+      <RoundedImage
+        source={{
+          uri: imgURL,
+        }}
+        size={Spacing.MINI_PROFILE_IMG_SIZE}
+      />
       <View style={styles.textWrapper}>
         <Text style={styles.title}>{title}</Text>
         <Followers
@@ -23,6 +28,10 @@ const UserCard = ({ title, nFollowers, imgURL }) => {
 };
 
 const styles = StyleSheet.create({
+  cardStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   textWrapper: {
     marginLeft: Spacing.DEFAULT_SPACING,
   },
