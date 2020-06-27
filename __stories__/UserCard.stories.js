@@ -8,8 +8,16 @@ storiesOf('User Card', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add('default', () => (
     <UserCard
-      title={'Tiago Freitas'}
+      name={'Tiago Freitas'}
       nFollowers={500}
       imgURL={'https://reactnative.dev/img/tiny_logo.png'}
+    />
+  ))
+  .add('with navigation', () => (
+    <UserCard
+      name={'Tiago Freitas'}
+      nFollowers={500}
+      imgURL={'https://reactnative.dev/img/tiny_logo.png'}
+      navigate
     />
   ));

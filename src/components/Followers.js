@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Strings } from '../other';
 import { Colors } from '../styles';
 
-const Followers = ({ style, textStyle, number }) => {
+const Followers = ({ style, textStyle, number = 0 }) => {
   return (
     <View style={[styles.container, style]}>
       <Icon style={[styles.text, textStyle]} name={'user-o'} />
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 Followers.propTypes = {
   style: ViewPropTypes.style,
-  number: PropTypes.number.isRequired,
+  number: PropTypes.number,
 };
 
 export default Followers;

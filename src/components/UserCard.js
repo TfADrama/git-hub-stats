@@ -6,9 +6,9 @@ import { CardView } from './common';
 import { Spacing, Typography } from '../styles';
 import { Followers, RoundedImage } from '.';
 
-const UserCard = ({ title, nFollowers, imgURL }) => {
+const UserCard = ({ name, nFollowers, imgURL, navigate }) => {
   return (
-    <CardView style={styles.cardStyle}>
+    <CardView contentStyle={styles.cardStyle} navigate={navigate}>
       <RoundedImage
         source={{
           uri: imgURL,
@@ -16,7 +16,7 @@ const UserCard = ({ title, nFollowers, imgURL }) => {
         size={Spacing.MINI_PROFILE_IMG_SIZE}
       />
       <View style={styles.textWrapper}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{name}</Text>
         <Followers
           style={styles.followersContainer}
           textStyle={styles.followersTextStyle}
@@ -47,9 +47,10 @@ const styles = StyleSheet.create({
 });
 
 CardView.propTypes = {
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   nFollowers: PropTypes.number,
   imgURL: PropTypes.string,
+  navigate: PropTypes.bool,
 };
 
 export default UserCard;

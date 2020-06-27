@@ -11,4 +11,9 @@ storiesOf('Card View', module)
     <CardView>
       <Text>Children</Text>
     </CardView>
+  ))
+  .add('with navigation', () => (
+    <CardView navigate>
+      <Text>Children</Text>
+    </CardView>
   ));
