@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import { primaryColor, lineColor } from '../../styles/colors';
 import { Spacing, Colors } from '../../styles';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 const CardView = ({ contentStyle, children, navigate = false }) => {
   return (

@@ -12,9 +12,4 @@ export const DEFAULT_BORDER_WIDTH = 1;
  * Profile Image
  */
 export const MINI_PROFILE_IMG_SIZE = 35;
-export const PROFILE_IMG_SIZE = 200;
-
-/**
- * Buttons
- */
-export const DEFAULT_BUTTON_HEIGHT = 40;
+export const PROFILE_IMG_SIZE = 56;

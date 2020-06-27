@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
 import CenterView from './CenterView';
-import { RepoCard } from '../src/components';
+import { RepoCard } from '../src/components/cards';
 
 storiesOf('Repository Card', module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)

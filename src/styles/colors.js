@@ -1,7 +1,6 @@
 export const primaryColor = {
   normal: '#2e3a53',
-  light: '#fff',
-  dark: '#24292E',
+  transparent: 'rgba(46,58,83,0.8)',
 };
 
 export const starColor = '#f5a623';

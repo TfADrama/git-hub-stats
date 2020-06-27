@@ -1,7 +1,8 @@
 import React from 'react';
-import { ProgressiveImage } from '.';
 import PropTypes from 'prop-types';
 import { ViewPropTypes } from 'react-native';
+
+import { ProgressiveImage } from '.';
 
 const RoundedImage = ({ placeholderSource, source, style, size = 56 }) => (
   <ProgressiveImage

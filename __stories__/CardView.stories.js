@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
 import CenterView from './CenterView';
-import { CardView } from '../src/components/common';
+import { CardView } from '../src/components/cards';
 import { Text } from 'react-native';
 
 storiesOf('Card View', module)

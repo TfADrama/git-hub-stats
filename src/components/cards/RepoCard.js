@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { CardView } from './common';
-import { Spacing, Typography, Colors } from '../styles';
-import { Stars } from '.';
+import { CardView } from '.';
+import { Spacing, Typography, Colors } from '../../styles';
+import { Stars } from '../common';
 
 const RepoCard = ({ name, stars, description, numberOfLines, navigate }) => {
   return (
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-CardView.propTypes = {
+RepoCard.propTypes = {
   name: PropTypes.string.isRequired,
   stars: PropTypes.number,
   description: PropTypes.string,

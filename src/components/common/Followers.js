@@ -3,8 +3,8 @@ import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { Strings } from '../other';
-import { Colors } from '../styles';
+import { Strings } from '../../other';
+import { Colors } from '../../styles';
 
 const Followers = ({ style, textStyle, number = 0 }) => {
   return (

@@ -2,9 +2,10 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { CardView } from './common';
-import { Spacing, Typography } from '../styles';
-import { Followers, RoundedImage } from '.';
+import { CardView } from '.';
+import { Spacing, Typography } from '../../styles';
+import { Followers } from '../common';
+import { RoundedImage } from '../imgs';
 
 const UserCard = ({ name, nFollowers, imgURL, navigate }) => {
   return (
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   },
 });
 
-CardView.propTypes = {
+UserCard.propTypes = {
   name: PropTypes.string.isRequired,
   nFollowers: PropTypes.number,
   imgURL: PropTypes.string,

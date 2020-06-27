@@ -2,7 +2,8 @@ import React from 'react';
 import { View, ViewPropTypes, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import { Colors } from '../styles';
+
+import { Colors } from '../../styles';
 
 const Stars = ({ style, number = 0 }) => {
   return (

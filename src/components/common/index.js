@@ -1,3 +1,5 @@
-import CardView from './CardView';
+import Followers from './Followers';
+import Stars from './Stars';
+import ProfileHeader from './ProfileHeader';
 
-export { CardView };
+export { Followers, Stars, ProfileHeader };
