@@ -6,9 +6,16 @@ import { CardView } from '.';
 import { Spacing, Typography, Colors } from '../../styles';
 import { Stars } from '../common';
 
-const RepoCard = ({ name, stars, description, numberOfLines, navigate }) => {
+const RepoCard = ({
+  name,
+  stars,
+  description,
+  numberOfLines,
+  navigate,
+  style,
+}) => {
   return (
-    <CardView navigate={navigate}>
+    <CardView navigate={navigate} style={style}>
       <View style={styles.topView}>
         <Text style={styles.title}>{name}</Text>
         <Stars number={stars} />

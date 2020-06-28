@@ -7,9 +7,9 @@ import { Spacing, Typography } from '../../styles';
 import { Followers } from '../common';
 import { RoundedImage } from '../imgs';
 
-const UserCard = ({ name, nFollowers, imgURL, navigate }) => {
+const UserCard = ({ name, nFollowers, imgURL, navigate, style }) => {
   return (
-    <CardView contentStyle={styles.cardStyle} navigate={navigate}>
+    <CardView style={style} contentStyle={styles.cardStyle} navigate={navigate}>
       <RoundedImage
         source={{
           uri: imgURL,

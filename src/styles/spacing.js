@@ -13,3 +13,9 @@ export const DEFAULT_BORDER_WIDTH = 1;
  */
 export const MINI_PROFILE_IMG_SIZE = 35;
 export const PROFILE_IMG_SIZE = 56;
+
+export const ListUsers = {
+  empty: {
+    ICON_SIZE: 50,
+  },
+};

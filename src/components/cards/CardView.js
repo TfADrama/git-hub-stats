@@ -6,9 +6,9 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import { primaryColor, lineColor } from '../../styles/colors';
 import { Spacing, Colors } from '../../styles';
 
-const CardView = ({ contentStyle, children, navigate = false }) => {
+const CardView = ({ style, contentStyle, children, navigate = false }) => {
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container, style]}>
       <View style={[styles.wrapper, contentStyle]}>{children}</View>
       {navigate && <Icon name="arrow-right" style={styles.icon} />}
     </View>

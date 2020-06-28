@@ -26,13 +26,16 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react-native": "^5.3.19",
     "@storybook/react-native-server": "^5.3.19",
+    "@types/jest": "^26.0.3",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "eslint": "^7.3.1",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "jest": "^26.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-dom": "16.11.0",
     "react-native-storybook-loader": "^1.8.1",
+    "react-native-testing-library": "^2.1.0",
     "react-test-renderer": "16.11.0"
   },
   "jest": {
@@ -50,9 +53,12 @@
   "eslintConfig": {
     "extends": [
       "@react-native-community",
-      "prettier"
+      "prettier",
+      "plugin:react-hooks/recommended"
     ],
     "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
       "prettier/prettier": [
         "error",
         {
