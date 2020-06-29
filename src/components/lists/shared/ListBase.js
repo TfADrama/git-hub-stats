@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  // Platform,
-  // RefreshControl,
-  // View,
-} from 'react-native';
-// import { LoadMoreListFooter, EmptyList } from '.';
+import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+
 import { Spacing } from '../../../styles';
 
 const ListBase = ({
@@ -41,7 +34,7 @@ const ListBase = ({
       ListEmptyComponent={ListEmptyComponent}
       contentContainerStyle={{ flexGrow: 1 }} // Added to center the empty list component
       keyExtractor={keyExtractor}
-      contentInset={{ top: 0, left: 0, right: 0, bottom: 20 }} //FIXME: Temporary solution to stop hiding part of the last list item
+      contentInset={{ top: 0, left: 0, right: 0, bottom: 20 }} //FIXME: Temporary solution to stop hiding part of the last list item (ios). Android still has the issue.
     />
   );
 };
