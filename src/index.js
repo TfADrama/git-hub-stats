@@ -1,8 +1,7 @@
 import { configureAxios } from './api/configuration';
-// import {createAppContainer} from 'react-navigation';
-// import {UserRoutes} from './config/routes';
+import { createAppContainer } from 'react-navigation';
+import { MainRoutes } from './routes';
 
 configureAxios();
 
-// export default createAppContainer(UserRoutes);
-export default from './screens/MainScreen';
+export default createAppContainer(MainRoutes);

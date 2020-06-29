@@ -4,11 +4,21 @@ import { Repo } from '../data';
 const ParseUsers = (users) => {
   const parsedUsers = [];
   users.forEach((user) => {
-    parsedUsers.push(User(user.id, user.avatar_url, user.login));
+    parsedUsers.push(ParseUser(user));
   });
 
   return parsedUsers;
 };
+
+const ParseUser = (user) =>
+  User(
+    user.id,
+    user.avatar_url,
+    user.login,
+    user.name,
+    user.email,
+    user.followers
+  );
 
 const ParseRepos = (repos) => {
   const parsedRepos = [];

@@ -4,7 +4,7 @@ import {
   USER_REPOSITORY_ENDPOINT,
   SEARCH_USERS_ENDPOINT,
 } from './endpoints';
-import { ParseUsers } from './parsers';
+import { ParseUsers, ParseUser } from './parsers';
 /**
  * Fetches for the most followed users
  * @param {number} limit number of users to retrieve on the first chunk
@@ -12,7 +12,7 @@ import { ParseUsers } from './parsers';
  *
  * @throws Unexpected errors may occur while fetching users.
  */
-export const fetchPopularUsers = async (limit = 10): Promise<Object> => {
+export const fetchPopularUsers = async (limit = 10) => {
   const configure = {
     params: {
       per_page: limit,
@@ -34,13 +34,13 @@ export const fetchPopularUsers = async (limit = 10): Promise<Object> => {
  * @returns {object}
  * @throws Unexpected errors may occur while fetching users.
  */
-export const fetchUser = async (username: string): Promise<Object> => {
+export const fetchUser = async (username: string) => {
   const getUserEndpoint = `${LIST_USERS_ENDPOINT}/${username}`;
 
   const response = await axios.get(getUserEndpoint);
   const data = response.data;
 
-  return data;
+  return ParseUser(data);
 };
 
 /**
@@ -50,9 +50,7 @@ export const fetchUser = async (username: string): Promise<Object> => {
  * @returns {object}
  * @throws Unexpected errors may occur while fetching users.
  */
-export const fetchUserRepositories = async (
-  username: string
-): Promise<Object> => {
+export const fetchUserRepositories = async (username: string) => {
   const getUserEndpoint = `${LIST_USERS_ENDPOINT}/${username}${USER_REPOSITORY_ENDPOINT}`;
 
   const { data } = await axios.get(getUserEndpoint);

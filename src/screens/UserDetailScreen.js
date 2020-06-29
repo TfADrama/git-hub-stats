@@ -1,30 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, SafeAreaView, Text, StyleSheet } from 'react-native';
 
 import { Followers } from '../components/common';
-import { Spacing, Colors, Typography } from '../styles';
+import { Spacing, Colors } from '../styles';
 import { ProfileHeader } from '../components/profile';
 import ListRepos from '../components/lists/ListRepos';
+import { fetchUser, fetchUserRepositories } from '../api/users.api';
 
 // TODO: LINK PROFILE
 const UserDetailScreen = () => {
+  const [user, setUser] = useState({});
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    const asyncFetchUser = async () => {
+      try {
+        const userResponse = await fetchUser();
+        const repoResponse = await fetchUserRepositories(userResponse.username);
+        setUser(userResponse);
+        setRepos(repoResponse);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    asyncFetchUser();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
-      <ProfileHeader
-        height={100}
-        imgSize={100}
-        imgURL={
-          'https://avatars2.githubusercontent.com/u/1174278?s=400&u=ba0904efeffa394e381de1880e2c6f2e2ca6d6d0&v=4'
-        }
-      />
+      <ProfileHeader height={100} imgSize={100} imgURL={user.avatarURL} />
       <View style={styles.contentWrapper}>
         <View style={styles.profileBody}>
-          <Text style={styles.name}>Tiago Freitas</Text>
-          <Text style={styles.mail}>tfafreitas@gmail.com</Text>
-          <Followers textStyle={styles.followers} />
+          <Text style={styles.name}>{user.name}</Text>
+          <Text style={styles.mail}>{user.email}</Text>
+          <Followers
+            number={user.numberOfFollowers}
+            textStyle={styles.followers}
+          />
         </View>
       </View>
-      <ListRepos />
+      <ListRepos repos={repos} />
     </SafeAreaView>
   );
 };
