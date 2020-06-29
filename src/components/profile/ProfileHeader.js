@@ -5,23 +5,27 @@ import PropTypes from 'prop-types';
 import { Spacing, Colors } from '../../styles';
 import { ProgressiveImage, RoundedImage } from '../imgs';
 
-const ProfileHeader = ({ color, imgURL, height = 50 }) => {
+const ProfileHeader = ({
+  color,
+  imgURL,
+  height = 50,
+  imgSize = Spacing.PROFILE_IMG_SIZE,
+}) => {
   const imgSource = { uri: imgURL };
-  const containerStyle = [styles.container, { backgroundColor: color, height }];
+  const containerStyle = [
+    styles.container,
+    { backgroundColor: color, height, marginBottom: imgSize / 2 },
+  ];
   const imgStyle = [
     styles.image,
-    { top: height - Spacing.PROFILE_IMG_SIZE / 2 }, // To center the image
+    { top: height - imgSize / 2 }, // To center the image
   ];
 
   return (
     <View style={containerStyle}>
       <ProgressiveImage source={imgSource} style={[StyleSheet.absoluteFill]} />
       <View style={styles.colorView} />
-      <RoundedImage
-        source={imgSource}
-        size={Spacing.PROFILE_IMG_SIZE}
-        style={imgStyle}
-      />
+      <RoundedImage source={imgSource} size={imgSize} style={imgStyle} />
     </View>
   );
 };
@@ -31,7 +35,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: Spacing.PROFILE_IMG_SIZE / 2, // To make below components visible
   },
   colorView: {
     backgroundColor: Colors.primaryColor.transparent,

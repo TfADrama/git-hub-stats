@@ -16,6 +16,7 @@ const ListBase = ({
   showLoadMoreButton = false,
   ListEmptyComponent,
   renderItem,
+  style,
 }) => {
   const _renderItem = (itemProps) => {
     if (!onPressItem) return renderItem(itemProps); // No need to be a button
@@ -34,20 +35,18 @@ const ListBase = ({
 
   return (
     <FlatList
-      style={styles.container}
+      style={style}
       data={data}
       renderItem={_renderItem}
       ListEmptyComponent={ListEmptyComponent}
       contentContainerStyle={{ flexGrow: 1 }} // Added to center the empty list component
       keyExtractor={keyExtractor}
+      contentInset={{ top: 0, left: 0, right: 0, bottom: 20 }} //FIXME: Temporary solution to stop hiding part of the last list item
     />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: Spacing.MIN_SPACING,
-  },
   itemContainer: {
     flex: 1,
   },

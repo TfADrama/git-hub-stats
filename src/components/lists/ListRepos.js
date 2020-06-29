@@ -7,7 +7,7 @@ import { Typography, Spacing, Colors } from '../../styles';
 import { Strings } from '../../other';
 import { RepoCard } from '../cards';
 
-const ListRepos = ({ repos }) => {
+const ListRepos = ({ repos, style }) => {
   const ListEmptyComponent = () => {
     return (
       <View style={styles.container}>
@@ -36,6 +36,7 @@ const ListRepos = ({ repos }) => {
 
   return (
     <ListBase
+      style={style}
       ListEmptyComponent={ListEmptyComponent}
       renderItem={renderItem}
       data={repos}

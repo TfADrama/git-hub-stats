@@ -301,10 +301,16 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
+  - RNCAsyncStorage (1.11.0):
+    - React
   - RNFastImage (8.1.5):
     - React
     - SDWebImage (~> 5.0)
     - SDWebImageWebPCoder (~> 0.4.1)
+  - RNGestureHandler (1.6.1):
+    - React
+  - RNReanimated (1.9.0):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - SDWebImage (5.7.3):
@@ -364,7 +370,10 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/callinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -435,8 +444,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   Yoga:
@@ -479,7 +494,10 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
+  RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNFastImage: 35ae972d6727c84ee3f5c6897e07f84d0a3445e9
+  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   SDWebImage: 97351f6582ceca541ea294ba66a1fcb342a331c2
   SDWebImageWebPCoder: 36f8f47bd9879a8aea6044765c1351120fd8e3a8

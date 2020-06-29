@@ -7,7 +7,7 @@ import { Typography, Spacing, Colors } from '../../styles';
 import { Strings } from '../../other';
 import { UserCard } from '../cards';
 
-const ListUsers = ({ users, onPressUser }) => {
+const ListUsers = ({ users, onPressUser, style }) => {
   const ListEmptyComponent = () => {
     return (
       <View style={styles.container}>
@@ -28,15 +28,15 @@ const ListUsers = ({ users, onPressUser }) => {
       <UserCard
         style={styles.userCard}
         navigate
-        imgURL={user.profileImgURL}
-        nFollowers={user.followers}
-        name={user.name}
+        imgURL={user.avatarURL}
+        name={user.username}
       />
     );
   };
 
   return (
     <ListBase
+      style={style}
       onPressItem={onPressUser}
       ListEmptyComponent={ListEmptyComponent}
       renderItem={renderItem}

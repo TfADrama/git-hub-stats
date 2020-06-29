@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 
 import { CardView } from '.';
 import { Spacing, Typography } from '../../styles';
-import { Followers } from '../common';
 import { RoundedImage } from '../imgs';
 
-const UserCard = ({ name, nFollowers, imgURL, navigate, style }) => {
+const UserCard = ({ name, imgURL, navigate, style }) => {
   return (
     <CardView style={style} contentStyle={styles.cardStyle} navigate={navigate}>
       <RoundedImage
@@ -18,11 +17,6 @@ const UserCard = ({ name, nFollowers, imgURL, navigate, style }) => {
       />
       <View style={styles.textWrapper}>
         <Text style={styles.title}>{name}</Text>
-        <Followers
-          style={styles.followersContainer}
-          textStyle={styles.followersTextStyle}
-          number={nFollowers}
-        />
       </View>
     </CardView>
   );
