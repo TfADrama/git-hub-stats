@@ -13,8 +13,8 @@ const ParseUsers = (users) => {
 const ParseUser = (user) =>
   User(
     user.id,
-    user.avatar_url,
     user.login,
+    user.avatar_url,
     user.name,
     user.email,
     user.followers
@@ -31,4 +31,4 @@ const ParseRepos = (repos) => {
   return parsedRepos;
 };
 
-export { ParseUsers, ParseRepos };
+export { ParseUsers, ParseRepos, ParseUser };

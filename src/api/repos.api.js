@@ -3,7 +3,7 @@ import { SEARCH_REPOS_ENDPOINT } from './endpoints';
 import { ParseRepos } from './parsers';
 
 /**
- * Fetches for the last year repositories with the most stars
+ * Fetches for the repositories with the most stars for a specific year
  * @param {number} limit number of repos to retrieve on the first chunk
  * @returns {Array} array of GitHub repositories,
  *
@@ -13,7 +13,7 @@ export const fetchTopYearStarRepos = async (limit = 10, year = 2019) => {
   const configure = {
     params: {
       per_page: limit,
-      q: `created:${year}-01-01..${year + 1}-01-01`, //+stars:>100`
+      q: `created:${year}-01-01..${year}-12-31`,
       page: 1,
       sort: 'stars',
       order: 'desc',

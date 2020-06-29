@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 import { ListUsers } from '../components/lists';
 import { fetchPopularUsers } from '../api/users.api';
 import { Spacing } from '../styles';
+import NavigationService from '../services/NavigationService';
 
-const TrendingUsersScreen = () => {
+const TrendingUsersScreen = ({ navigation }) => {
   const [users, setUsers] = useState([]);
-
   useEffect(() => {
     const asyncFetchUsers = async () => {
       try {
@@ -20,7 +20,9 @@ const TrendingUsersScreen = () => {
   }, []);
 
   const onPressUser = (index) => {
-    console.log(index);
+    NavigationService.navigate('UserDetail', {
+      username: users[index].username,
+    });
   };
 
   return (

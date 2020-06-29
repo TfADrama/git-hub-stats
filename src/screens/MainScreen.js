@@ -58,6 +58,10 @@ const MainScreen = () => {
   );
 };
 
+MainScreen.navigationOptions = {
+  title: 'Git Hub',
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

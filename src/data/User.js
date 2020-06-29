@@ -1,8 +1,10 @@
-const User = (id, avatarURL, username, numberOfFollowers) => ({
+const User = (id, username, avatarURL, name, email, numberOfFollowers) => ({
   id,
-  avatarURL,
-  numberOfFollowers,
   username,
+  avatarURL,
+  name,
+  email,
+  numberOfFollowers,
 });
 
 export default User;

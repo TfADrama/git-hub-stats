@@ -5,18 +5,21 @@ import { Followers } from '../components/common';
 import { Spacing, Colors } from '../styles';
 import { ProfileHeader } from '../components/profile';
 import ListRepos from '../components/lists/ListRepos';
-import { fetchUser, fetchUserRepositories } from '../api/users.api';
+import { fetchUser, fetchTopUserRepositories } from '../api/users.api';
 
-// TODO: LINK PROFILE
-const UserDetailScreen = () => {
+// TODO: Add link for profile
+const UserDetailScreen = ({ navigation }) => {
   const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
+  const username = navigation.getParam('username');
 
   useEffect(() => {
     const asyncFetchUser = async () => {
       try {
-        const userResponse = await fetchUser();
-        const repoResponse = await fetchUserRepositories(userResponse.username);
+        const [userResponse, repoResponse] = await Promise.all([
+          fetchUser(username),
+          fetchTopUserRepositories(username),
+        ]);
         setUser(userResponse);
         setRepos(repoResponse);
       } catch (error) {
@@ -24,7 +27,7 @@ const UserDetailScreen = () => {
       }
     };
     asyncFetchUser();
-  }, []);
+  }, [username]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -38,10 +41,14 @@ const UserDetailScreen = () => {
             textStyle={styles.followers}
           />
         </View>
+        <ListRepos style={styles.repos} repos={repos} />
       </View>
-      <ListRepos repos={repos} />
     </SafeAreaView>
   );
+};
+
+UserDetailScreen.navigationOptions = ({ navigation }) => {
+  return { title: navigation.getParam('username') };
 };
 
 const styles = StyleSheet.create({
@@ -49,14 +56,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentWrapper: {
-    marginHorizontal: 24,
+    flex: 1,
+    marginHorizontal: Spacing.MAX_SPACING,
     marginVertical: Spacing.MIN_SPACING,
   },
   profileBody: {
     alignSelf: 'stretch',
     alignItems: 'center',
     paddingBottom: Spacing.DEFAULT_SPACING,
-    marginBottom: Spacing.MAX_SPACING,
     borderBottomColor: Colors.lineColor,
     borderBottomWidth: 2,
   },
@@ -73,6 +80,9 @@ const styles = StyleSheet.create({
   },
   followers: {
     fontSize: 16,
+  },
+  repos: {
+    paddingTop: Spacing.MAX_SPACING,
   },
 });
 

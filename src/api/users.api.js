@@ -3,8 +3,9 @@ import {
   LIST_USERS_ENDPOINT,
   USER_REPOSITORY_ENDPOINT,
   SEARCH_USERS_ENDPOINT,
+  SEARCH_REPOS_ENDPOINT,
 } from './endpoints';
-import { ParseUsers, ParseUser } from './parsers';
+import { ParseUsers, ParseUser, ParseRepos } from './parsers';
 /**
  * Fetches for the most followed users
  * @param {number} limit number of users to retrieve on the first chunk
@@ -44,15 +45,23 @@ export const fetchUser = async (username: string) => {
 };
 
 /**
- * Fetches the repository list of the user with a given username.
+ * Fetches the repository list of the user with a given username ordered by stars count.
  *
  * @param {string} username username to search
  * @returns {object}
  * @throws Unexpected errors may occur while fetching users.
  */
-export const fetchUserRepositories = async (username: string) => {
-  const getUserEndpoint = `${LIST_USERS_ENDPOINT}/${username}${USER_REPOSITORY_ENDPOINT}`;
-
-  const { data } = await axios.get(getUserEndpoint);
-  return data;
+export const fetchTopUserRepositories = async (username, limit = 10) => {
+  const getUserEndpoint = `${SEARCH_REPOS_ENDPOINT}`;
+  const configure = {
+    params: {
+      per_page: limit,
+      q: `user:${username}`,
+      page: 1,
+      sort: 'stars',
+      order: 'desc',
+    },
+  };
+  const { data } = await axios.get(getUserEndpoint, configure);
+  return ParseRepos(data.items);
 };
